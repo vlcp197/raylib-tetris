@@ -1,4 +1,4 @@
-#My first contact with the c++ language and raylib framework for game development.
+# My first contact with the c++ language and raylib framework for game development.
 
 # Video Tutorial
 
