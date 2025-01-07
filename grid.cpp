@@ -49,7 +49,7 @@ void Grid::Draw()
     }
 }
 
-bool Grid::isCellOutside(int row, int column)
+bool Grid::IsCellOutside(int row, int column)
 {
     if (row >= 0 && row < numRows && column >= 0 && column < numCols)
     {
@@ -59,4 +59,40 @@ bool Grid::isCellOutside(int row, int column)
     
 }
 
+bool Grid::IsCellEmpty(int row, int column)
+{
+    if(grid[row][column] == 0)
+    {
+        return true;
+    }
+    return false;
+}
 
+bool Grid::IsRowFull(int row)
+{
+    for (int column = 0; column < numCols; column++)
+    {
+        if(grid[row][column] == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+void Grid::ClearRow(int row)
+{
+    for (int column = 0; column < numCols; column++)
+    {
+        grid[row][column] = 0;
+    }
+}
+
+void Grid::MoveRowDown(int row, int numRows)
+{
+    for(int column = 0; column < numCols; column++)
+    {
+        grid[row + numRows][column] = grid[row][column];
+        grid[row][column] = 0;
+    }
+}
